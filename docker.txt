@@ -1,0 +1,13 @@
+forntend => build [npm run build] => dist 
+
+copy dist folder content in Backend/public folder 
+
+run Backend server [ node server,js]
+
+docker image creating command after creating the dockerfile 
+docker build . -t imageName  ( but the docker window must be open )
+
+for checking the img is working properly we have to put commmand =>  docker run imageName 
+
+docker run -p 4000:3000 backend => this command for actually see the site in the browser actually the image running show server is running on port 3000 but if i search localhost:3000 nothing show we have to run the port 4000 command to run connect our system to the image port now if i serach the localhost:4000 all the 3000 port data is show on 4000.
+

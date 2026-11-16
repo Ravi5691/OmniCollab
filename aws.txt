@@ -1,0 +1,47 @@
+Now a user create a image in docker now they want to pust it in aws.
+
+To deploy a image in aws we have ECS aws service but one more service of aws is use ECR. Firstly the image is securaly store in ecr then go to ecs.
+
+AWS ECR and ECS Explained ---------------------------------------------------
+Amazon ECR (Elastic Container Registry)
+ECR is a managed Docker container registry.
+You push container images to ECR, and it stores them securely.
+Each image is organized by:
+repository name
+image tag (e.g. latest, v1)
+image digest (immutable content hash)
+How images get stored in ECR
+Build a Docker image locally:
+docker build -t my-app .
+Tag the image for ECR:
+docker tag my-app:latest 123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+Authenticate Docker to ECR:
+aws ecr get-login-password | docker login --username AWS --password-stdin 123456789012.dkr.ecr.us-east-1.amazonaws.com
+Push to ECR:
+docker push 123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+ECR keeps the image layers and metadata, so AWS services can pull it later.
+
+Amazon ECS (Elastic Container Service) ---------------------------------------------
+ECS runs containers using images from a registry like ECR.
+ECS has two launch modes:
+Fargate: serverless containers
+EC2: containers on your own EC2 instances
+How ECR images are used by ECS
+Create an ECS Task Definition
+Specify the image URI from ECR:
+123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app:latest
+Define CPU, memory, port mappings, environment variables, etc.
+Create an ECS Service
+The service runs tasks based on that task definition.
+ECS pulls the image from ECR
+When ECS starts a task, it authenticates and downloads the image layers from ECR.
+Then it creates the container from that image.
+
+In short ---------------------------------------------
+ECR = Docker image storage.
+ECS = container runtime/orchestration.
+Workflow:
+Build image locally
+Push image to ECR
+Reference ECR image in ECS task definition
+ECS pulls image and runs containers

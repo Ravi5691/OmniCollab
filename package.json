@@ -1,0 +1,15 @@
+{
+  "name": "collaborative-coding-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Real-time collaborative code editor powered by Yjs, Monaco Editor, Socket.IO, Express, and Docker",
+  "scripts": {
+    "build:frontend": "npm --prefix frontend run build",
+    "copy:public": "node -e \"const fs=require('fs'); fs.rmSync('backend/public', {recursive:true, force:true}); fs.cpSync('frontend/dist', 'backend/public', {recursive:true}); console.log('Copied frontend build to backend/public successfully!')\"",
+    "build": "npm run build:frontend && npm run copy:public",
+    "start": "node backend/server.js",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev"
+  }
+}
+
