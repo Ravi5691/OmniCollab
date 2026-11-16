@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: dockerfile
-    container_name: collaborative-coding-platform
+    container_name: omnicollab
     ports:
       - "3000:3000"
     environment:

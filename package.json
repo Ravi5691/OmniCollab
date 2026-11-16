@@ -1,9 +1,10 @@
 {
-  "name": "collaborative-coding-platform",
+  "name": "omnicollab",
   "version": "1.0.0",
   "private": true,
-  "description": "Real-time collaborative code editor powered by Yjs, Monaco Editor, Socket.IO, Express, and Docker",
+  "description": "OmniCollab — Real-time collaborative workspace suite powered by Yjs, Monaco Editor, Socket.IO, Express, and Docker",
   "scripts": {
+    "test": "node tests/test-collab.mjs",
     "build:frontend": "npm --prefix frontend run build",
     "copy:public": "node -e \"const fs=require('fs'); fs.rmSync('backend/public', {recursive:true, force:true}); fs.cpSync('frontend/dist', 'backend/public', {recursive:true}); console.log('Copied frontend build to backend/public successfully!')\"",
     "build": "npm run build:frontend && npm run copy:public",

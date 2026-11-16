@@ -103,7 +103,7 @@ function App() {
       if (isSynced && yText.length === 0) {
         yText.insert(
           0,
-          `// Collaborative Code Platform\n// Room: monaco\n// Welcome, ${username}!\n\nfunction welcome() {\n  console.log("Real-time collaborative editing is active!");\n}\n\nwelcome();\n`
+          `// OmniCollab — Real-Time Collaborative Workspace\n// Room: monaco\n// Welcome, ${username}!\n\nfunction welcome() {\n  console.log("Real-time collaborative editing is active in OmniCollab!");\n}\n\nwelcome();\n`
         )
       }
     })
@@ -173,10 +173,10 @@ function App() {
               </svg>
             </div>
             <h1 className="text-2xl font-bold tracking-tight text-white">
-              Collaborative Coding Platform
+              OmniCollab
             </h1>
             <p className="text-sm text-neutral-400 mt-1">
-              Join the real-time shared code editor
+              All-in-one real-time collaborative workspace
             </p>
           </div>
 
@@ -226,7 +226,7 @@ function App() {
           </div>
           <div>
             <h1 className="text-sm font-semibold tracking-wide text-neutral-200">
-              Collaborative Coding Platform
+              OmniCollab
             </h1>
             <div className="text-xs text-neutral-400 flex items-center gap-2">
               <span>Room: <strong className="text-neutral-300">monaco</strong></span>

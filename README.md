@@ -1,4 +1,4 @@
-# 🚀 SyncSpace — Real-Time Collaborative Workspace Platform
+# 🚀 OmniCollab — Real-Time Collaborative Workspace Platform
 
 > A full-stack, containerized real-time collaboration suite. Built with **React 19**, **Monaco Editor (VS Code engine)**, **Yjs (CRDTs)**, **Socket.IO**, **Express 5**, and **Docker**.
 
@@ -25,7 +25,7 @@
 
 ## 🌟 Overview
 
-**SyncSpace** is an extensible real-time collaboration platform designed for teams to edit code, collaborate, and share ideas simultaneously without race conditions or merge conflicts.
+**OmniCollab** is an extensible real-time collaboration platform designed for teams to edit code, collaborate, and share ideas simultaneously without race conditions or merge conflicts.
 
 While currently featuring a shared code editor powered by the VS Code Monaco engine, the platform is architected to scale into an all-in-one developer collaboration suite featuring:
 * 💻 **Collaborative Code Editor** (Active)
@@ -258,18 +258,18 @@ aws ecr get-login-password --region us-east-1 | docker login --username AWS --pa
 
 ### Step 2: Build & Tag the Docker Image
 ```bash
-docker build -t syncspace .
-docker tag syncspace:latest <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/syncspace:latest
+docker build -t omnicollab .
+docker tag omnicollab:latest <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/omnicollab:latest
 ```
 
 ### Step 3: Push to Amazon ECR
 ```bash
-docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/syncspace:latest
+docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/omnicollab:latest
 ```
 
 ### Step 4: Run on Amazon ECS (Fargate)
 1. Open the **AWS ECS Console** and create a new **Task Definition**.
-2. Specify the container image URI: `<AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/syncspace:latest`.
+2. Specify the container image URI: `<AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/omnicollab:latest`.
 3. Set container port mapping to **`3000`**.
 4. Create an **ECS Service** with an **Application Load Balancer (ALB)**.
 5. Enable **Stickiness** on the target group to maintain stable WebSocket sessions.
